@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <title>Uusi ottelu</title>
+</head>
+
+<body>
+  <form action="/create_match" method="post">
+    <p>
+        Kotijoukkue: <br />
+        <input type="text" name="home_team" />
+      </p>
+      <p>
+        Vierasjoukkue: <br />
+        <input type="text" name="away_team" />
+      </p>
+      <p>
+        Stadion: <br />
+        <input type="text" name="stadium" />
+      </p>
+      <p>
+        Päivämäärä: <br />
+        <input type="date" name="date" />
+      </p>
+    <input type="submit" value="Lisää ottelu" />
+  </form>
+</body>
+
+</html>

@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <title>Ottelun muokkaus</title>
+</head>
+
+<body>
+    <h1>Ottelun muokkaus</h1>
+  <form action="/update_match" method="post">
+    <p>
+        Kotijoukkue: <br />
+        <input type="text" name="home_team" />
+      </p>
+      <p>
+        Vierasjoukkue: <br />
+        <input type="text" name="away_team" />
+      </p>
+      <p>
+        Stadion: <br />
+        <input type="text" name="stadium" />
+      </p>
+      <p>
+        Päivämäärä: <br />
+        <input type="date" name="date" />
+      </p>
+      <input type="hidden" name="match_id" value="{{ match.id }}" />
+    <input type="submit" value="Päivitä ottelu"/>
+  </form>
+</body>
+
+</html>

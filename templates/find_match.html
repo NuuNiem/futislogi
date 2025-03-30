@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <title>Etsi ottelu</title>
+</head>
+
+<body>
+    <h1>Etsi ottelu</h1>
+    <form action="/find_match" method="get">
+        <p>
+        Hakusana: <input type="text" name="query" value="{{ query }}">
+        </p>
+        <input type="submit" value="Etsi">
+    </form>
+
+    {% if query %}
+    <h2>Tulokset</h2>
+    <ul>
+        {% for match in matches %}
+        <li><a href="/match/{{ match.id }}">{{ match.name }}</a></li>
+        {% endfor %}
+    </ul>
+    {% endif %}
+</body> 
+
+</html>

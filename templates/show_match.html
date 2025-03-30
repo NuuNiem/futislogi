@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <title>{{ match.name }}</title>
+</head>
+
+<body>
+  <h1>{{ match.name }}</h1>
+  {% if session.user_id == match.user_id %}
+  <p>
+    <a href="/edit_match/{{ match.id }}">Muokkaa</a>
+    <a href="/remove_match/{{ match.id }}">Poista</a>
+  </p>
+    {% endif %}
+  <p>
+    {{ match.stadium }}
+  </p>
+  <p>
+    {{ match.date }}
+  </p>
+  <p>
+    {{ match.username}}
+  </p>
+  <p>
+    <a href = "/">Takaisin</a>
+  </p>
+</body>
+
+
+</html>
+

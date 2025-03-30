@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <title>Futislogi</title>
+</head>
+
+<body>
+  <h1>Futislogi</h1>
+
+  {% if session.username %}
+    <p>Olet kirjautunut nimellä {{ session.username }}</p>
+  {% endif %}
+
+  <p>
+    {% if session.username %}
+      <a href="/logout">Kirjaudu ulos</a>
+    {% else %}
+      <a href="/login">Kirjaudu</a>
+      <a href="/register">Luo tunnus</a>
+    {% endif %}
+  </p>
+
+  {% if session.username %}
+    <p>
+      <a href="/new_match">Uusi ottelu</a>
+      <a href="/find_match">Etsi ottelu</a>
+    </p>
+  {% endif %}
+
+  <h2>Ottelut</h2>
+  <ul>
+    {% for match in matches %}
+      <li><a href="/match/{{ match.id }}">{{ match.name }}</a></li>
+    {% endfor %}
+  </ul>
+</body>
+
+</html>

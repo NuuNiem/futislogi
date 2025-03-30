@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <title>Ottelun poisto</title>
+</head>
+<body>
+    <h1>Ottelun poisto</h1>
+    <p>Ottelu: {{ match.name }}</p>
+    <p>Haluatko varmasti poistaa tämän ottelun?</p>
+  <form action="/remove_match/{{ match.id }}" method="post">
+    <input type="submit" name="remove" value="Poista ottelu"/>
+    <input type="submit" name="back" value="Palaa takaisin"/>
+  </form>
+</body>
+
+</html>
