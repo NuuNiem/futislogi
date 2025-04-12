@@ -1,6 +1,6 @@
 import sqlite3
 from flask import Flask
-from flask import redirect, render_template, request, session
+from flask import redirect, render_template, request, session, abort
 from werkzeug.security import generate_password_hash, check_password_hash
 import db
 import config
@@ -48,6 +48,8 @@ def create_match():
 @app.route("/edit_match/<int:match_id>")
 def edit_match(match_id):
     match = matches.get_match(match_id)
+    if match["user_id"] !=session["user_id"]:
+        abort(403)
     return render_template("edit_match.html", match=match)
 
 @app.route("/update_match", methods=["POST"])
@@ -58,14 +60,20 @@ def update_match():
     stadium = request.form["stadium"]
     date = request.form["date"]
 
+    match = matches.get_match(match_id)
+    if match["user_id"] != session["user_id"]:
+        abort(403)
+
     matches.update_match(match_id, home_team, away_team, stadium, date)
 
     return redirect("/match/" + str(match_id))
 
 @app.route("/remove_match/<int:match_id>", methods=["GET", "POST"])
 def remove_match(match_id):
+    match = matches.get_match(match_id)
+    if match["user_id"] != session["user_id"]:
+            abort(403)
     if request.method == "GET":
-        match = matches.get_match(match_id)
         return render_template("remove_match.html", match=match)
     
     if request.method == "POST":
