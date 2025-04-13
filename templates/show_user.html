@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <title>Käyttäjä {{ user.username }}</title>
+</head>
+
+<body>
+  <h1>Käyttäjä {{ user.username }}</h1>
+  <p>
+    Käyttäjä on käynyt {{ matches | count }} ottelussa.
+  </p>
+  <h2>Ottelut</h2>
+  <ul>
+    {% for match in matches %}
+      <li><a href="/match/{{ match.id }}">{{ match.name }}</a></li>
+    {% endfor %}
+  </ul>
+  <p>
+    <a href = "/">Takaisin</a>
+  </p>
+</body>
+
+
+</html>
+

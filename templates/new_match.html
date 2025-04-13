@@ -9,19 +9,31 @@
   <form action="/create_match" method="post">
     <p>
         Kotijoukkue: <br />
-        <input type="text" name="home_team" />
+        <input type="text" name="home_team" maxlength="20" required/>
       </p>
       <p>
         Vierasjoukkue: <br />
-        <input type="text" name="away_team" />
+        <input type="text" name="away_team" maxlength="20" required/>
       </p>
       <p>
         Stadion: <br />
-        <input type="text" name="stadium" />
+        <input type="text" name="stadium" maxlength="30" required/>
       </p>
       <p>
         Päivämäärä: <br />
         <input type="date" name="date" />
+      </p>
+      <p>
+        Tunnelma (1-5): <br />
+        <label><input type="radio" name="atmosphere_rating" value="1" /> 1</label>
+        <label><input type="radio" name="atmosphere_rating" value="2" /> 2</label>
+        <label><input type="radio" name="atmosphere_rating" value="3" /> 3</label>
+        <label><input type="radio" name="atmosphere_rating" value="4" /> 4</label>
+        <label><input type="radio" name="atmosphere_rating" value="5" /> 5</label>
+      </p>
+      <p>
+        Kommentit: <br />
+        <textarea name="notes" rows="4" cols="50"></textarea>
       </p>
     <input type="submit" value="Lisää ottelu" />
   </form>

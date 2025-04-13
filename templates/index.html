@@ -21,12 +21,12 @@
     {% endif %}
   </p>
 
-  {% if session.username %}
-    <p>
+  <p>
+    <a href="/find_match">Etsi ottelu</a>
+    {% if session.username %}
       <a href="/new_match">Uusi ottelu</a>
-      <a href="/find_match">Etsi ottelu</a>
-    </p>
-  {% endif %}
+    {% endif %}
+  </p>
 
   <h2>Ottelut</h2>
   <ul>

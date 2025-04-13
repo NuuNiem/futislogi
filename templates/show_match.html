@@ -12,21 +12,50 @@
     <a href="/edit_match/{{ match.id }}">Muokkaa</a>
     <a href="/remove_match/{{ match.id }}">Poista</a>
   </p>
-    {% endif %}
+  {% endif %}
   <p>
     {{ match.stadium }}
   </p>
   <p>
     {{ match.date }}
   </p>
+  {% if match.atmosphere_rating %}
   <p>
-    {{ match.username}}
+    Tunnelma: {{ match.atmosphere_rating }}/5
   </p>
+  {% endif %}
+  {% if match.notes %}
   <p>
-    <a href = "/">Takaisin</a>
+    Kommentit:<br>
+    {{ match.notes }}
+  </p>
+  {% endif %}
+  
+  <div>
+    <p>
+      <strong>Tykkäykset: {{ like_count }}</strong>
+    </p>
+    
+    {% if session.user_id and session.user_id != match.user_id %}
+      {% if has_liked %}
+        <form action="/unlike/{{ match.id }}" method="post">
+          <button type="submit">Peru tykkäys</button>
+        </form>
+      {% else %}
+        <form action="/like/{{ match.id }}" method="post">
+          <button type="submit">Tykkää</button>
+        </form>
+      {% endif %}
+    {% endif %}
+  </div>
+  
+  <p>
+    <a href="/user/{{ match.user_id }}">{{ match.username }}</a>
+  </p>
+  
+  <p>
+    <a href="/">Takaisin</a>
   </p>
 </body>
 
-
 </html>
-
