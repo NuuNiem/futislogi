@@ -14,3 +14,8 @@
 ## Sovelluksen tulevat toiminnot
 * Käyttäjä pystyy lisäämään kuvia ja videoita otteluun liittyen.
 * Käyttäjä pystyy vertailemaan tilastojaan eri ajanjaksoilta (esim. kausittaiset suoritukset, eniten katsotut joukkueet).
+
+## Käyttöohjeet
+* python -m venv venv
+* pip install flask
+* flask run
